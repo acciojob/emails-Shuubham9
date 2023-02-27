@@ -10,6 +10,7 @@ public class Email {
         this.password = "Accio@123";
     }
 
+
     public String getEmailId() {
         return emailId;
     }
@@ -25,5 +26,69 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
+        if(oldPassword.equals(this.password)){
+            if(isValid(newPassword)) password=newPassword;
+        }
+    }
+
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+
+    public boolean isValid(String pas){
+        if(pas.length()<8){
+            return false;
+        }
+        if(!isUppercase(pas)){
+          return false;
+        }
+        if(!isLowercase(pas)){
+            return false;
+        }
+        if(!isDigit(pas)){
+            return false;
+        }
+        if(!isSpecial(pas)){
+            return false;
+        }
+        return true;
+    }
+    public boolean isUppercase(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isUpperCase(pas.charAt(i))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isLowercase(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isLowerCase(pas.charAt(i))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isDigit(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isDigit(pas.charAt(i))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isSpecial(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isDigit(pas.charAt(i))){
+                continue;
+            }
+            else if (Character.isLetter(pas.charAt(i))) {
+                continue;
+            }
+            else{
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -45,85 +45,59 @@ public class Email {
 //    }
 
     public boolean isValid(String pas){
-//        if(pas.length()<8){
-//            return false;
-//        }
-//        if(!isUppercase(pas)){
-//          return false;
-//        }
-//        if(!isLowercase(pas)){
-//            return false;
-//        }
-//        if(!isDigit(pas)){
-//            return false;
-//        }
-//        if(!isSpecial(pas)){
-//            return false;
-//        }
-//        return true;
-        Boolean capitalLetter = false;
-        Boolean smallLetter = false;
-        Boolean digit = false;
-        Boolean specialCharacter = false;
-
-        if(password.length() < 8){
+        if(pas.length()<8){
             return false;
         }
-
-        for(int i = 0; i<password.length(); i++){
-            char ch = password.charAt(i);
-            if((ch >= 'A') && (ch <= 'Z')){
-                capitalLetter = true;
-            }
-            else if((ch >= 'a') && (ch <= 'z')){
-                smallLetter = true;
-            }
-            else if((ch >= '0') && (ch <= '9')){
-                digit = true;
-            }
-            else specialCharacter = true;
+        if(!isUppercase(pas)){
+          return false;
         }
-
-        if(capitalLetter && smallLetter && digit && specialCharacter)
-            return true;
+        if(!isLowercase(pas)){
+            return false;
+        }
+        if(!isDigit(pas)){
+            return false;
+        }
+        if(!isSpecial(pas)){
+            return false;
+        }
+        return true;
+    }
+    public boolean isUppercase(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isUpperCase(pas.charAt(i))){
+                return true;
+            }
+        }
         return false;
     }
-//    public boolean isUppercase(String pas){
-//        for(int i=0;i<pas.length();i++){
-//            if(Character.isUpperCase(pas.charAt(i))){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    public boolean isLowercase(String pas){
-//        for(int i=0;i<pas.length();i++){
-//            if(Character.isLowerCase(pas.charAt(i))){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    public boolean isDigit(String pas){
-//        for(int i=0;i<pas.length();i++){
-//            if(Character.isDigit(pas.charAt(i))){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    public boolean isSpecial(String pas){
-//        for(int i=0;i<pas.length();i++){
-//            if(Character.isDigit(pas.charAt(i))){
-//                continue;
-//            }
-//            else if (Character.isLetter(pas.charAt(i))) {
-//                continue;
-//            }
-//            else{
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean isLowercase(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isLowerCase(pas.charAt(i))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isDigit(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isDigit(pas.charAt(i))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isSpecial(String pas){
+        for(int i=0;i<pas.length();i++){
+            if(Character.isDigit(pas.charAt(i))){
+                continue;
+            }
+            else if (Character.isLetter(pas.charAt(i))) {
+                continue;
+            }
+            else{
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -89,7 +89,7 @@ public class Gmail extends Email {
 
     public void emptyTrash(){
         // clear all mails in the trash
-        if(getTrashSize()!=0) Trash.clear();
+        Trash.clear();
     }
 
     public int getInboxCapacity() {
